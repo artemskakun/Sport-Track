@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -20,6 +22,7 @@ const LoginForm = () => {
         const { token, userId } = await response.json();
         // Сохранение токена и ID пользователя, например, в локальном хранилище
         console.log('Login successful');
+        navigate('/dashboard');
       } else {
         console.error('Login failed');
       }

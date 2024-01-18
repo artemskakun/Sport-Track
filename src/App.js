@@ -10,9 +10,9 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" element={<RegisterForm />} />
+          {/* <Route path="/" element={<RegisterForm />} /> */}
           <Route path="/" element={<LoginForm />} />
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* Дополнительные маршруты, если необходимо */}
         </Routes>
       </div>
