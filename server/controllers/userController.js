@@ -81,8 +81,27 @@ const saveUserData = async (req, res) => {
   }
 };
 
+const getUserData = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    // Поиск пользователя по ID
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'Пользователь не найден' });
+    }
+
+    // Возвращение данных пользователя
+    res.status(200).json({ userData: user.entries });
+  } catch (error) {
+    console.error('Ошибка при получении данных пользователя:', error);
+    res.status(500).json({ error: 'Внутренняя ошибка сервера' });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
   saveUserData,
+  getUserData,
 };

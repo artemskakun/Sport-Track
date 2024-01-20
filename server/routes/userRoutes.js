@@ -20,5 +20,8 @@ router.post('/login', userController.loginUser);
 // POST-запрос на эндпоинт '/saveUserData', обрабатываемый методом saveUserData из контроллера
 router.post('/saveUserData', userController.saveUserData);
 
+// Запрос данных пользователя
+router.get('/:userId', userController.getUserData);
+
 // Экспортируем объект router для использования в других частях приложения
 module.exports = router;
